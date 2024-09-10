@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/users">paynet-challenge</a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/users" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ loggedInUser }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a routerLink="/register-user" class="dropdown-item">Cadastrar usuário</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item" (click)="logout()">Logout</button></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

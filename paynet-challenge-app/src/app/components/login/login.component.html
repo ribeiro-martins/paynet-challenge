@@ -1,0 +1,40 @@
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form ngNativeValidate (ngSubmit)="onSubmit()">
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="email" id="email" class="form-control form-control-lg"
+              placeholder="Seu email" [(ngModel)]="email" name="email" required />
+            <label class="form-label" for="email">Email</label>
+          </div>
+          <div data-mdb-input-init class="form-outline mb-3">
+            <input type="password" id="password" class="form-control form-control-lg"
+              placeholder="Sua senha" [(ngModel)]="password" name="password" required/>
+            <label class="form-label" for="password">Senha</label>
+          </div>
+          @if (errorMessages.length > 0) {
+            <div class="alert alert-danger">
+              @for (errorMessage of errorMessages; track errorMessage) {
+                {{ errorMessage }}
+              }
+            </div>
+          }
+
+
+          <div class="d-flex justify-content-between align-items-center">
+            <a routerLink="/forgot-password" class="text-body">Esqueceu sua senha?</a>
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

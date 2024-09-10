@@ -1,0 +1,50 @@
+version: '3.8'
+name: paynet-challenge
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - mongo_network
+
+  api:
+    image: paynet-challenge-api  
+    container_name: api
+    build:
+      context: ../paynet-challenge-api
+      dockerfile: Dockerfile  
+    ports:
+      - "5243:8080"
+    environment:
+      ConnectionString: "mongodb://admin:password@mongodb"
+    depends_on:
+      - mongodb
+    networks:
+      - mongo_network
+  app:
+    image: paynet-challenge-app  
+    container_name: app
+    build:
+      context: ../paynet-challenge-app
+      dockerfile: Dockerfile  
+    ports:
+      - "80:80" 
+    depends_on:
+      - api
+    networks:
+      - mongo_network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  mongo_network:
+    driver: bridge

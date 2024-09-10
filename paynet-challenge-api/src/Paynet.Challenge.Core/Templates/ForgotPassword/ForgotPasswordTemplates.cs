@@ -1,0 +1,7 @@
+namespace Paynet.Challenge.Core.Templates.ForgotPassword
+{
+    public static class ForgotPasswordTemplates
+    {
+        public const string FORGOT_PASSWORD_TEMPLATE = "<!doctype html><html lang='pt-BR'><meta charset='UTF-8'><meta content='width=device-width,initial-scale=1' name='viewport'><title>Recuperação de Conta</title><body style='font-family:Arial,sans-serif;background-color:#f4f4f4;margin:0;padding:0;'><table role='presentation' style='width:100%;height:100%;border-collapse:collapse;border:0;border-spacing:0;background-color:#f4f4f4;'><tr><td align='center' style='padding:20px;'><table role='presentation' style='max-width:400px;width:100%;background-color:#fff;border-radius:8px;padding:30px;box-shadow:0 2px 10px rgba(0,0,0,0.1);text-align:center;'><tr><td><h2 style='color:#333;'>Código para Recuperação da Conta</h2><p style='color:#555;font-size:16px;margin:20px 0;'>Seu código para recuperação da conta é:</p><div style='font-size:24px;font-weight:bold;color:#2e7d32;background-color:#e8f5e9;padding:10px 20px;border-radius:5px;display:inline-block;'>{{randomCode}}</div><p style='color:#777;font-size:14px;margin-top:20px;'>Use este código para redefinir sua senha. O código expira em uma hora.</p></td></tr></table></td></tr></table></body></html>";
+    }
+}

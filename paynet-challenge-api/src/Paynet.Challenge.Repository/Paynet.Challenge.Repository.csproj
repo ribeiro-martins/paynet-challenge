@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.25.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Paynet.Challenge.Entities\Paynet.Challenge.Entities.csproj" />
+  </ItemGroup>
+</Project>

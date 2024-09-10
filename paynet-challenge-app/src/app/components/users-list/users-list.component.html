@@ -1,0 +1,18 @@
+<app-menu></app-menu>
+<div class="container mt-5">
+  <!-- Tabela de usuários -->
+  <div class="row">
+    <div *ngIf="users.length === 0" class="col-12">
+      <p class="alert alert-warning text-center">Nenhum usuário encontrado.</p>
+    </div>
+
+    <div *ngFor="let user of users" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ user.fullName }}</h5>
+          <p class="card-text">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

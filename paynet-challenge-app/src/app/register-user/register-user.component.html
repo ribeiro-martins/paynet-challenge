@@ -1,0 +1,81 @@
+<app-menu></app-menu>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-lg" style="max-width: 600px; width: 100%;">
+    <h2 class="text-center mb-4">Cadastro de Usuário</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label for="fullName">Nome Completo</label>
+        <input type="text" class="form-control" id="fullName" [(ngModel)]="fullName" name="fullName" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password">Senha</label>
+        <input minlength="8" type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="confirmPassword">Confirmar Senha</label>
+        <input minlength="8" type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+      </div>
+
+      <h5 class="mt-4">Endereço</h5>
+
+      <div class="form-group mb-3">
+        <label for="zipCode">CEP</label>
+        <input maxlength="8" minlength="8" type="text" class="form-control" id="zipCode" [(ngModel)]="address.zipCode" name="zipCode" (blur)="fetchAddress()" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="street">Rua</label>
+        <input type="text" class="form-control" id="street" [(ngModel)]="address.street" name="street" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="number">Número</label>
+        <input type="text" class="form-control" id="number" [(ngModel)]="address.number" name="number" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="neighborhood">Bairro</label>
+        <input type="text" class="form-control" id="neighborhood" [(ngModel)]="address.neighborhood" name="neighborhood" required />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="city">Cidade</label>
+        <input type="text" class="form-control" id="city" [(ngModel)]="address.city" name="city" required />
+      </div>
+
+    <div class="form-group mb-3">
+        <label for="state">Estado</label>
+        <select class="form-control" id="state" [(ngModel)]="address.state" name="state" required>
+          <option value="">Selecione um estado</option>
+          @for (uf of ufs; track uf) {
+            <option [value]="uf">{{ uf }}</option>
+          }
+          <option *ngFor="let uf of ufs" [value]="uf">{{ uf }}</option>
+        </select>
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="complement">Complemento</label>
+        <input type="text" class="form-control" id="complement" [(ngModel)]="address.complement" name="complement" />
+      </div>
+
+      @if (errorMessages.length > 0) {
+        <div class="alert alert-danger">
+          @for (errorMessage of errorMessages; track errorMessage) {
+            {{ errorMessage }}
+          }
+        </div>
+      }
+
+      <button type="submit" class="btn btn-success w-100 mt-3">Cadastrar</button>
+    </form>
+  </div>
+</div>
